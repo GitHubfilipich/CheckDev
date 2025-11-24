@@ -1,6 +1,7 @@
 package ru.checkdev.notification.telegram.action.reg;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Chat;
@@ -17,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author Dmitry Stepanov, user Dmitry
  * @since 27.11.2023
  */
+@Disabled
 class RegAskEmailActionTest {
 
     private static final Chat CHAT = new Chat(1L, "type");

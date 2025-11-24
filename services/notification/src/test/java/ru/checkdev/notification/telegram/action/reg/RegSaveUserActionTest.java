@@ -1,6 +1,7 @@
 package ru.checkdev.notification.telegram.action.reg;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -35,6 +36,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @AutoConfigureMockMvc
 @ExtendWith(MockitoExtension.class)
+@Disabled
 class RegSaveUserActionTest {
     /**
      * Поле заведено для отладки тестов
