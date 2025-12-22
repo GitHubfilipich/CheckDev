@@ -3,17 +3,15 @@ package ru.job4j.site.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import ru.job4j.site.domain.VacancyStatistic;
 import ru.job4j.site.dto.DirectionKey;
 import ru.job4j.site.dto.VacancyStatisticWithDates;
 import ru.job4j.site.util.RestAuthCall;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,6 +22,7 @@ public class VacancyStatisticService {
     private final EurekaUriProvider uriProvider;
     private static final String SERVICE_ID = "generator";
     private static final String DIRECT = "/statistic/";
+    private final RestTemplate restTemplate;
 
     public void create(String token, DirectionKey directionKey) throws JsonProcessingException {
         String uri = String.format("%s%s%s", uriProvider.getUri(SERVICE_ID), DIRECT, "create");
@@ -50,7 +49,7 @@ public class VacancyStatisticService {
     }
 
     public void delete(int id) {
-        new RestTemplate().delete(String
+        restTemplate.delete(String
                 .format("%s%s%s%d", uriProvider.getUri(SERVICE_ID), DIRECT, "delete/", id));
     }
 
